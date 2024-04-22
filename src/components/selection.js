@@ -1,7 +1,7 @@
 import { LANGUAGE } from "../const";
 
 export function Selection({onRestartButtonClick, currentLanguage, onInputChange, isDisabled}) {
-// console.log(isDisabled)
+
     return (
         <div className="selection">
         <button className="selection__restart-button" onClick={onRestartButtonClick}>Начать заново</button>

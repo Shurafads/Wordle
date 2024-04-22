@@ -6,7 +6,6 @@ import { getKeyboardButtonClassName } from "../dependeses/getKeyboardButtonClass
 export function Keyboard({onLetterButtonClick, onEnterButtonClick, onDeleteButtonClick, colorStyle, currentLanguage}) {
 
     useEffect(() => {
-        console.log('useEffect keyboard')
         const callback = (evt) => {
             if (currentLanguage === LANGUAGE.RUS && ALPHABET_RUS.includes(evt.key.toUpperCase())) {
                 onLetterButtonClick(evt.key.toUpperCase());

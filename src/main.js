@@ -27,10 +27,7 @@ export function Main() {
     const [endGameModalStatus, setEndGameModalStatus] = useState(false);
     const [wrongWordModalStatus, setWrongWordModalStatus] = useState(false);
 
-    console.log(state);
-
     useEffect(() => {
-        console.log('useEffect main')
         if (currentLanguage === LANGUAGE.ENG) {
             setCurrentDataLanguage(engWords);
             setState((prev) => ({...prev, expectedWord: getRandomWord(engWords)}));
@@ -82,7 +79,6 @@ export function Main() {
 
     const onModalSubmit = () => {
         setState(({introducedWords, ...prev}) => ({...prev, introducedWords: []}));
-        // setState(prev => ({...prev, introducedWords: []}));   -------------------------------------------
         setState(prev => ({...prev, expectedWord: getRandomWord(currentLanguageData)}));
         setEndGameModalStatus(false);
         gameStatus = true;
