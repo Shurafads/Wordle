@@ -23,7 +23,7 @@ export function Main() {
 
     const [endGameModalStatus, setEndGameModalStatus] = useState(false);
     const [wrongWordModalStatus, setWrongWordModalStatus] = useState(false);
-console.log(state)
+
     const [gameStatus, setGameStatus] = useState(true)
 
     useEffect(() => {
