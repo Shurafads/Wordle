@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Keyboard } from "./components/keyboard";
 import { Board } from "./components/board";
-import './main.css'
 import { engWords } from "./api/engWords";
 import { getRandomWord } from "./dependeses/getRandomWord";
 import { AMOUNT_OF_LETTERS, LANGUAGE } from "./const";
@@ -10,8 +9,6 @@ import { WrongWordModal } from "./components/wrongWordModal";
 import { Selection } from "./components/selection";
 import { rusWords } from "./api/rusWords";
 import { getKeyboardColorStyle } from "./dependeses/getKeyboardColorStyle";
-
-let gameStatus = true;
 
 export function Main() {
 
@@ -26,6 +23,8 @@ export function Main() {
 
     const [endGameModalStatus, setEndGameModalStatus] = useState(false);
     const [wrongWordModalStatus, setWrongWordModalStatus] = useState(false);
+console.log(state)
+    const [gameStatus, setGameStatus] = useState(true)
 
     useEffect(() => {
         if (currentLanguage === LANGUAGE.ENG) {
@@ -53,7 +52,7 @@ export function Main() {
             }
             if (state.currentWord === state.expectedWord || state.introducedWords.length === AMOUNT_OF_LETTERS - 1) {   
                 setEndGameModalStatus(true);
-                gameStatus = false;
+                setGameStatus(false);
             }
             setState(({introducedWords, ...prev}) => ({...prev, introducedWords: [...introducedWords, state.currentWord]}));
             setState(({currentWord, ...prev}) => ({...prev, currentWord: ''}));
@@ -81,14 +80,14 @@ export function Main() {
         setState(({introducedWords, ...prev}) => ({...prev, introducedWords: []}));
         setState(prev => ({...prev, expectedWord: getRandomWord(currentLanguageData)}));
         setEndGameModalStatus(false);
-        gameStatus = true;
+        setGameStatus(true);
     }
 
     const onRestartButtonClick = () => {
         setState(prev => ({...prev, currentWord: ''}));
         setState(prev => ({...prev, introducedWords: []}));
         setState(prev => ({...prev, expectedWord: getRandomWord(currentLanguageData)}));
-        gameStatus = true;
+        setGameStatus(true);
     }
 
     const onOverlayClick = () => {
@@ -116,9 +115,7 @@ export function Main() {
                 <WrongWordModal></WrongWordModal>
             }
 
-            <div className="title__container">
-                <h1 className='title'>Wordle</h1>
-            </div>
+            <h1 className='main__title'>Wordle</h1>
 
             <Selection
                 onRestartButtonClick={onRestartButtonClick}

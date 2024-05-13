@@ -9,7 +9,7 @@ export function Board({introducedWords, expectedWord, currentWord}) {
     const emptyLineCount = (AMOUNT_OF_LETTERS - introducedWords.length - 1) >= 0 ? (AMOUNT_OF_LETTERS - introducedWords.length - 1) : 0;
 
     return (
-        <div className="board">
+        <div className="main__board board">
             {Array(introducedWords.length)
                 .fill('')
                 .map((_,index) => <IntroducedLine key={index} word={introducedWords[index]} expectedWord={expectedWord} ></IntroducedLine>)

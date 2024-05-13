@@ -1,0 +1,29 @@
+@import '../variables.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none;
+}
+
+.main__title {
+    margin: 30px auto 30px;
+    text-align: center;
+    color: $primary-color;
+    font-size: 45px;
+
+    @media screen and (max-width: $mobile) {
+        font-size: 30px;
+        margin: 20px auto 20px;
+    }
+}
+
+.main__board {
+    margin: 0 auto 40px;
+}
+
+.main__keyboard {
+    width: 100%;
+    align-items: center;
+}

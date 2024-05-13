@@ -29,13 +29,13 @@ export function Keyboard({onLetterButtonClick, onEnterButtonClick, onDeleteButto
     }, [onLetterButtonClick, onEnterButtonClick, onDeleteButtonClick, currentLanguage])
 
     return (
-        <div className="keyboard">
+        <div className="main__keyboard keyboard">
             <div className="keyboard__row">
                 {
                     getKeyboardButtons()[currentLanguage][0]
                     .map(letter => 
                         <button
-                            className={`keyboard__button ${getKeyboardButtonClassName(letter, colorStyle)}`}
+                            className={getKeyboardButtonClassName(letter, colorStyle)}
                             onClick={() => onLetterButtonClick(letter)}
                             key={letter}
                         >
@@ -59,8 +59,8 @@ export function Keyboard({onLetterButtonClick, onEnterButtonClick, onDeleteButto
                 }
             </div>
             <div className="keyboard__row">
-                <button className="keyboard__button button--wide" onClick={onDeleteButtonClick}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22px" height="22px">
+                <button className="keyboard__button keyboard__button--wide" onClick={onDeleteButtonClick}>
+                    <svg className="keyboard__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18px" height="18px">
                         <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
                     </svg>
                 </button>
@@ -76,7 +76,7 @@ export function Keyboard({onLetterButtonClick, onEnterButtonClick, onDeleteButto
                         </button>
                     )
             }
-                <button className="keyboard__button button--wide" onClick={onEnterButtonClick}>Enter</button>
+                <button className="keyboard__button keyboard__button--wide" onClick={onEnterButtonClick}>Enter</button>
             </div>
         </div>
     )

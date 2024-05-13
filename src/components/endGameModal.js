@@ -4,23 +4,23 @@ export function EndGameModal({expectedWord, onModalClose, onModalSubmit, onOverl
 
     return (
         <div
-            className="modal"
+            className="end-modal"
             onClick={(evt) => {
                 if (evt.target.className === 'modal') {
                     onOverlayClick();
                 }
             }
         }>
-            <div className ="modal__container">
-                <button className="modal__button--close" onClick={onModalClose}>
+            <div className ="end-modal__container">
+                <button className="end-modal__button-close" onClick={onModalClose}>
                     <span>x</span>
                 </button>
-                <h2 className="modal__title">{title}</h2>
-                <p className="modal__text">
+                <h2 className="end-modal__title">{title}</h2>
+                <p className="end-modal__text">
                     Загаданное слово:
                     <b> {expectedWord}</b>
                 </p>
-                <button className="modal__button--submit" onClick={onModalSubmit}>Играть еще раз</button>
+                <button className="end-modal__button-submit" onClick={onModalSubmit}>Играть еще раз</button>
             </div>
         </div>
     );

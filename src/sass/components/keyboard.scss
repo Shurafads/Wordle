@@ -1,0 +1,90 @@
+@import '../variables.scss';
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 5px;
+    background-color: $bg-color;
+    max-width: 1000px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.keyboard__row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+}
+
+.keyboard__button {
+    cursor: pointer;
+    border: none;
+    box-shadow: 1px 1px 2px $shadow-color;
+    background-color: $light-color;
+    color: $dark-color;
+    font-weight: 400;
+    font-size: 16px;
+    transition: all 0.2s;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 7%;
+
+    @media screen and (max-width: $tablet) {
+        border-radius: 4px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        font-size: 12px;
+        border-radius: 3px;
+        padding: 0.5rem 0.3rem;
+    }
+
+    &--wide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 11%;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $disabled-color;;
+        }
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+
+    &--absent {
+        background-color: $absent-color;
+        color: $light-color;
+    }
+
+    &--present {
+        background-color: $present-color;
+        color: $light-color;
+    }
+
+    &--correct {
+        background-color: $primary-color;
+        color: $light-color;
+    }
+}
+
+.keyboard__svg {
+
+    @media screen and (max-width: $tablet) {
+        max-width: 16px;
+        max-height: 16px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        max-width: 13px;
+        max-height: 13px;
+    }
+}

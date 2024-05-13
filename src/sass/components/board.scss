@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: $bg-color;
+}
+
+.board__line {
+    display: flex;
+    gap: 5px;
+}
+
+.board__letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+    color: $dark-color;
+    font-weight: 400;
+    font-size: 30px;
+    box-shadow: 1px 1px 2px $shadow-color;
+    background-color: $light-color;
+
+    @media screen and (max-width: $mobile) {
+        width: 55px;
+        height: 55px;
+    }
+
+    &--absent {
+        background-color: $absent-color;
+        color: $light-color;
+    }
+
+    &--present {
+        background-color: $present-color;
+        color: $light-color;
+    }
+
+    &--correct {
+        background-color: $primary-color;
+        color: $light-color;
+    }
+}
