@@ -4,16 +4,19 @@ import { getColorStyle } from "./getColorStyle"
 export const getKeyboardColorStyle = (expectedWord, introducedWords) => {
 
     const lettersList = [];
-
+    const colorList = [COLOR.absent, COLOR.present, COLOR.correct];
+    
     for (const word of introducedWords) {
         lettersList.push(...getColorStyle(word, expectedWord));
     }
 
-    const lettersGroup = Object.groupBy(lettersList, ({letter}) => letter);
+    const lettersGroup = lettersList.reduce((acc, obj) => {
+        acc[obj.letter] ??= [];
+        acc[obj.letter].push(obj);
+        return acc;
+    },{})
 
-    const colorList = [COLOR.absent, COLOR.present, COLOR.correct]
-
-    const result = {}
+    const result = {};
 
     for (const letter in lettersGroup) {
         const color = lettersGroup[letter]
